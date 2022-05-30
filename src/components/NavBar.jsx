@@ -1,4 +1,7 @@
+//rfce
+//rfc
 import Pad from '../img/img_1.png'
+import CartWidget from './CartWidget';
 
 function NavBar() {
     return (
@@ -41,7 +44,15 @@ function NavBar() {
                                 <a className="nav-link text-white" href="#/">Nosotros</a>
                             </li>
 
+                            
+                            
+                            
                         </ul>
+
+                        <div className="ps-5 pe-5">
+                            <CartWidget items={0} />
+                        </div>
+                        
                     </div>
 
                 </div>
