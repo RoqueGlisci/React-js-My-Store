@@ -31,7 +31,7 @@ export default function Item({ producto }) {
                     <br />
                     Precio: ${price}
                 </p>
-                <a href="#/" className="btn btn-primary bg-dark"><Link to={"/detail/" + id}>Ver Detalles</Link></a>
+                <Link to={"/detail/" + id} href="#/" className="btn btn-primary bg-dark">Ver Detalles</Link>
             </div>
         </div>
     ) 
