@@ -22,7 +22,7 @@ export default function ItemCount({inicial, max, onAdd}) {
                 <div className='btnStyle'>
                     <div className='pos'>
                         <button className='btn1' onClick={sumar}>+</button>
-                        <h2>{count}</h2>
+                        <h2 className='text-white'>{count}</h2>
                         <button className='btn1' onClick={restar}>-</button>
                     </div>
                     <div className='pos pt-2'>

@@ -2,6 +2,7 @@
 //rfc
 import Pad from '../img/img_1.png'
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
@@ -13,7 +14,8 @@ function NavBar() {
                         <img src={Pad} alt="padel" style={{ width: "3rem" }} />
                     </div>
                     <div className='col'>
-                        <a className="navbar-brand text-white ps-5" href="#/" style={{ fontSize: "1.8rem" }}>My Store</a>
+
+                        <Link to="/" className="navbar-brand text-white ps-5" href="#/" style={{ fontSize: "1.8rem" }}>My Store</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -26,7 +28,8 @@ function NavBar() {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item pe-5">
-                                <a className="nav-link active text-white" aria-current="page" href="#/">Inicio</a>
+                                
+                                <Link to="/inicio" className="nav-link active text-white" aria-current="page" href="#/">Inicio</Link>
                             </li>
                             
                             <li className="nav-item dropdown pe-5">
@@ -35,17 +38,15 @@ function NavBar() {
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a className="dropdown-item" href="#/">Remeras</a></li>
-                                    <li><a className="dropdown-item" href="#/">Paletas</a></li>
-                                    <li><a className="dropdown-item" href="#/">Zapatillas</a></li>
+                                    
+                                    <li><Link to="/producto/paleta" className="dropdown-item" href="#/">Paletas</Link></li>
+                                    <li><Link to="/producto/calzado" className="dropdown-item" href="#/">Zapatillas</Link></li>
                                 </ul>
                             </li>
 
                             <li className="nav-item">
                                 <a className="nav-link text-white" href="#/">Nosotros</a>
                             </li>
-
-                            
-                            
                             
                         </ul>
 
