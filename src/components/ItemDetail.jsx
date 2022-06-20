@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useContext } from 'react';
+
 import ItemCount from './ItemCount';
+import {MyContext} from '../context/CartContext';
+
+
 
 export const ItemDetail = ({ detail }) => {
 
     const { title, description, price, stock, pictureUrl_1 } = detail;
     
-    //la funcion onAdd es donde se va a pasar la cantidad
-    const onAdd = (count) => {
-        alert(`agregaste ${count} productos`)
-    }
+    const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
+    // const [count, setCount] = useState();
+
+    const { isInCart, addItem } = useContext(MyContext);
+     
+    const onAdd = (count) => {
+        alert(`agregaste ${count} productos`);
+
+        setMostrarItemCount(false);
+        isInCart(detail.id);
+        addItem(detail, count);
+    }
+  
+    
     return (
         
         <>
@@ -25,7 +40,9 @@ export const ItemDetail = ({ detail }) => {
                             <h3 className='pb-3 text-white'>{description}</h3>
                             <h3 className='pb-3 text-white'>Precios: ${price}</h3>
                             <h3 className='pb-3 text-white'>Stock: {stock}</h3>
-                            <ItemCount inicial={1} max={9} onAdd={onAdd} /> 
+
+                            {mostrarItemCount ? <ItemCount inicial={1} max={stock} onAdd={onAdd} /> : <p className='text-center text-white'>finalizado</p>}
+
                             <button type="button" className="btn btn-primary btn-lg ">Comprar</button>
                         </div>
                     </div>

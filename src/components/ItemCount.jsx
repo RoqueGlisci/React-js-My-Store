@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
 export default function ItemCount({inicial, max, onAdd}) {
-    // const {inicial, max, onAdd}=props //ota forma
     
-    //el count es el que va a mostar los cambios en el html y setCount donde se aolican los cambios 
     const [count, setCount] = useState(inicial);
 
     const sumar = () => {
@@ -32,15 +30,6 @@ export default function ItemCount({inicial, max, onAdd}) {
                 </div>
             </div>
             
-
-            {/* <div className='text-center'>
-                <h2>{count}</h2>
-                <button onClick={sumar}>+</button>
-                <button onClick={restar}>-</button>
-                <button onClick={reset}>Reset</button> */}
-                {/* se ejecuta un callback que ejecuata la funcion para pasarle un parametro  */}
-                {/* <button onClick={() => { onAdd(count); reset() }}>agregar al carrito</button>
-            </div> */}
         </>
     )
 }

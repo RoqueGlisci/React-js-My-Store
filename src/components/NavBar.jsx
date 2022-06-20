@@ -51,7 +51,7 @@ function NavBar() {
                         </ul>
 
                         <div className="ps-5 pe-5">
-                            <CartWidget items={0} />
+                            <CartWidget />
                         </div>
                         
                     </div>
