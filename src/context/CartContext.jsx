@@ -1,12 +1,8 @@
 
 import { useState } from 'react';
 import { createContext } from 'react';
-// import CartWidget from '../components/CartWidget';
-// export const CartContext = createContext();
 
 export const MyContext = createContext({});
-
-// const { Provider } = CartContext;
 
 export default function CartContext({ children }) {
     
@@ -30,7 +26,7 @@ export default function CartContext({ children }) {
             auxArray[productIndex].count += count
             setCart(auxArray)
         } else {
-            setCart([...cart], newItem)
+            setCart([...cart, newItem])
         }
     } 
     
@@ -46,6 +42,7 @@ export default function CartContext({ children }) {
     
     //Metodo Reduce - CartWidget - retorna la cantidad total de unidades que nuestro state cart
     const getItemQty = () => { 
+        
         return cart.reduce((acc, x) => acc += x.count, 0)
     }
     

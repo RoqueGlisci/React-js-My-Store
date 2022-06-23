@@ -1,6 +1,4 @@
-//rfce
-//rfc
-import Pad from '../img/img_1.png'
+
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +9,7 @@ function NavBar() {
             <div className="container-fluid">
                 <div className="row pe-5">
                     <div className='col'>
-                        <img src={Pad} alt="padel" style={{ width: "3rem" }} />
+                        <img src={"../img/img_1.png"} alt="padel" style={{ width: "3rem" }} />
                     </div>
                     <div className='col'>
 

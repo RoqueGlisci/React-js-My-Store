@@ -4,21 +4,17 @@ import { useContext } from 'react';
 import ItemCount from './ItemCount';
 import {MyContext} from '../context/CartContext';
 
-
-
 export const ItemDetail = ({ detail }) => {
 
     const { title, description, price, stock, pictureUrl_1 } = detail;
-    
-    const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
-    // const [count, setCount] = useState();
+    const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
     const { isInCart, addItem } = useContext(MyContext);
      
     const onAdd = (count) => {
         alert(`agregaste ${count} productos`);
-
+        console.log(count);
         setMostrarItemCount(false);
         isInCart(detail.id);
         addItem(detail, count);
@@ -43,7 +39,6 @@ export const ItemDetail = ({ detail }) => {
 
                             {mostrarItemCount ? <ItemCount inicial={1} max={stock} onAdd={onAdd} /> : <p className='text-center text-white'>finalizado</p>}
 
-                            <button type="button" className="btn btn-primary btn-lg ">Comprar</button>
                         </div>
                     </div>
 
