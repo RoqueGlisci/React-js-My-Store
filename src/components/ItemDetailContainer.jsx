@@ -40,7 +40,7 @@ export default function ItemDetailContainer() {
             <div>
                 <p className='text-center p-5'>{loading && 'Loading...'}</p>
                 <p>{error && 'Error'}</p>
-        
+
                 {detail && <ItemDetail detail={detail} />}
             </div>
 

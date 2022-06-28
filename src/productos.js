@@ -17,7 +17,7 @@ export const producDet = [
     title: "Bullpadel Proline",
     description:
       "La nueva pala de pádel BULLPADEL K4 PRO 2017, concebida para jugadores que buscan una pala con máxima precisión.",
-    price: 90000,
+    price: 70000,
     stock: 6,
     pictureUrl_1: "../img/img_3.jpg",
   },

@@ -10,32 +10,32 @@ export default function Footer() {
                 <section className="mb-4">
                 
                     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><i class="bi bi-facebook"></i
+                        ><i className="bi bi-facebook"></i
                     ></a>
                     
                     
                     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><i class="bi bi-twitter"></i
-                    ></a>
-
-                    
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><i class="bi bi-google"></i
+                        ><i className="bi bi-twitter"></i
                     ></a>
 
                     
                     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><i class="bi bi-instagram"></i
+                        ><i className="bi bi-google"></i
                     ></a>
 
                     
                     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><i class="bi bi-linkedin"></i
+                        ><i className="bi bi-instagram"></i
                     ></a>
 
                     
                     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><i class="bi bi-github"></i
+                        ><i className="bi bi-linkedin"></i
+                    ></a>
+
+                    
+                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i className="bi bi-github"></i
                     ></a>
                   </section>
                   

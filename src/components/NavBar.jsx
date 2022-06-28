@@ -48,8 +48,12 @@ function NavBar() {
                             
                         </ul>
 
-                        <div className="ps-5 pe-5">
-                            <CartWidget />
+                        <div className="ps-5 pe-5" >
+                            <div className='p-1' style={{border: "1px solid white", borderRadius: "15px"}}>
+                                <Link to="/cart" className="dropdown-item" href="#/"><CartWidget /></Link>
+                            </div>
+                            
+                            
                         </div>
                         
                     </div>

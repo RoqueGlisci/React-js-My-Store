@@ -19,8 +19,7 @@ export const ItemDetail = ({ detail }) => {
         isInCart(detail.id);
         addItem(detail, count);
     }
-  
-    
+   
     return (
         
         <>
