@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 
 export default function ItemCard({producto}) {
-  const { id, count, title, price, pictureUrl_1 } = producto;
+  const { id, count, title, price, pictureUrl } = producto;
   
   const { deleteItem } = useContext(MyContext);
 
@@ -14,7 +14,7 @@ export default function ItemCard({producto}) {
       <div className='row p-3' style={{backgroundColor: "rgba(0, 0, 0, 0.4)", borderRadius: "2rem" }}>
 
         <div className='col'>
-          <img src={pictureUrl_1} style={{ height: "8rem", width: "13rem", borderRadius: "2rem" }} alt="" />
+          <img src={pictureUrl} style={{ height: "8rem", width: "13rem", borderRadius: "2rem" }} alt="" />
         </div>
 
         <div className='col text-white text-center'>
@@ -26,8 +26,8 @@ export default function ItemCard({producto}) {
           <h4>cantidad : {count}</h4>
         </div>
 
-        <div className='col text-white text-center'>
-          <button onClick={() => { deleteItem(id) }} >borrar</button>
+        <div className='col text-center'>
+          <button className='btn btn-dark position-relative' onClick={() => { deleteItem(id) }} >borrar</button>
           
         </div>
       </div>

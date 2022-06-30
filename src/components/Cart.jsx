@@ -33,7 +33,7 @@ export default function Cart() {
                 setLoading(false);
             })
 
-    }, []);
+    }, [cart]);
 
     
   return (
