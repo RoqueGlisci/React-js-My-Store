@@ -3,6 +3,7 @@ import { MyContext } from '../context/CartContext';
 import {useContext, useState, useEffect} from 'react';
 import { Link} from 'react-router-dom';
 import ItemCart from './ItemCart';
+import Checkout from './Checkout';
 
 export default function Cart() {
     const [product, setProduct] = useState([])
@@ -59,7 +60,9 @@ export default function Cart() {
                   <div className='d-grid gap-2 col-6 mx-auto text-center'>
                       <h3>Total : {getItemPrice()}</h3>     
                       <button type="button" className="btn btn-dark position-relative" onClick={emptyCart} >  Borrar Productos</button>
-                      <button type="button" className="btn btn-dark position-relative" onClick={emptyCart} >  Finalizar Compra</button>     
+                      <button type="button" className="btn btn-dark position-relative">
+                          <Link to="/checkout" className="dropdown-item" href="#/">Finalizar compra</Link>
+                      </button>     
                   </div>
                 
             </>}
