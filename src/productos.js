@@ -3,7 +3,7 @@
 export const producDet = [
   {
     id: "1",
-    categories: "paleta",
+    category: "paleta",
     title: "Bullpadel Hack",
     description:
       "La nueva pala Hack 03 2022 es una pala de máxima potencia y alto rendimiento, diseñada para jugadores profesionales o avanzados, con marco 100% fibra de carbono.",

@@ -1,58 +1,93 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createContext } from 'react';
+import Swal from 'sweetalert2';
 
 export const MyContext = createContext({});
 
 export default function CartContext({ children }) {
     
     const [cart, setCart] = useState([])
-    
-    //Metodo some - ItemDetail - detecta si el producto que se agrega ya esta en el carrito o no. Retorna booleano
+
+    useEffect(() => {
+        getCartFromLocalStorage(); 
+    }, []); 
+
     const isInCart = (id) => { 
         return cart.some(x => x.id === id)
     }
     
-    //ItemDetail - agrega el producto al cart, sin pisar agregados anteriores y si es duplicado aumenta cantidad
-    const addItem = (item, count) => { 
+    const addItem = (item, count, id) => { 
         const newItem = {
             ...item,
-            count
+            count,
+            id
         }
         if (isInCart(newItem.id)) {
             const findProduct = cart.find(x => x.id === newItem.id)
             const productIndex = cart.indexOf(findProduct)
             const auxArray = [...cart]
-            auxArray[productIndex].count += count
-            setCart(auxArray)
+            const x = auxArray[productIndex].count += count
+            if (x > newItem.stock) {
+                Swal.fire('No se puede comprar mas productos. Llego a su limite')
+            } else {
+                setCart(auxArray)
+                setCartInLocalStorage(auxArray)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `agregaste ${count} producto`,
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            }
+            
         } else {
             setCart([...cart, newItem])
+            setCartInLocalStorage([...cart, newItem])
+            Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Agregaste ${count} producto`,
+                    showConfirmButton: false,
+                    timer: 2000
+                })
         }
     } 
     
-    //Vacia el carrito - cart - boton
     const emptyCart = () => { 
-        setCart([])//lo setea a un array vacio 
+        setCart([])
+        setCartInLocalStorage([])
     }
     
-    //Metodo filter - cart - mediante el id retorna un nuevo array sin el producto seleccionado
     const deleteItem = (id) => { 
-        return setCart(cart.filter(x => x.id !== id))
+        let newAux = cart.filter(x => x.id !== id)
+        setCart(newAux)
+        setCartInLocalStorage(newAux)
+        
     }
     
-    //Metodo Reduce - CartWidget - retorna la cantidad total de unidades que nuestro state cart
     const getItemQty = () => { 
         
         return cart.reduce((acc, x) => acc += x.count, 0)
     }
     
-    //Metodo reduce - cart - retorna el precio total del carrito 
     const getItemPrice = () => {
+
         return cart.reduce((acc, x) => acc += x.count * x.price, 0)
     }
 
+    const getCartFromLocalStorage = () => {
+        if (localStorage.getItem('cart')) {
+            setCart(JSON.parse(localStorage.getItem('cart')));
+        }
+    }
+    const setCartInLocalStorage = ( cart ) => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
   return (
-    <MyContext.Provider value={{cart, isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice}}>
+    <MyContext.Provider value={{cart, isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice, getCartFromLocalStorage}}>
         {children}
     </MyContext.Provider>
   )

@@ -17,8 +17,8 @@ export default function Categories() {
   return (
       <>
           {category.map((el) => (
-              <li className='' key={el}>
-                  <Link to={'/producto/' + el} className="dropdown-item">{el}</Link>
+              <li className='nav-item' key={el}>
+                  <Link to={'/producto/' + el} className="nav-link  text-white">{el}</Link>
               </li>
           ))}
       </>

@@ -10,18 +10,20 @@ export default function ItemListContainer() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const { id } = useParams(); 
-
+    
     useEffect(() => {
         const db = getFirestore();
         const productsCollection = collection(db, 'productos');
         setLoading(true)
         setTimeout(() => {
+            
             if (id) {
                 const q = query(productsCollection, where("category", "==", id)) 
                 
                 getDocs(q)
                     .then((snapshot) => {
                         setProduc(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); 
+                        
                     })
                     .catch((error) => {
                         setError(error)
@@ -34,6 +36,7 @@ export default function ItemListContainer() {
                 getDocs(productsCollection)
                     .then((snapshot) => {
                         setProduc(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); 
+                        
                     })
                     .catch((error) => {
                         setError(error)
@@ -43,22 +46,16 @@ export default function ItemListContainer() {
                     });
 
             }
-        }, 2000);
-
+        }, 1000);
+        
     }, [id])
     
-    
     return (
-        
         <>
-            <div className='text-center p-5'>{loading && 'Loading...'}</div>
-            <div>{error && 'Error'}</div> 
-
             <div>
-                {produc && <ItemList productos={produc} />}
-                
+                {loading ? <div className='position-absolute top-50 start-50 translate-middle text-white'>Loading...</div> : <ItemList productos={produc} />}
+                <div>{error && 'Error'}</div> 
             </div>
-
         </>    
     );
 }

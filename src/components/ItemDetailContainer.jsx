@@ -27,16 +27,16 @@ export default function ItemDetailContainer() {
                 .finally(() => {
                     setLoading(false);
                 }); 
-        }, 2000);    
+        }, 1000);    
     }, [id]);
     
     return (
         <>
-            <div>
-                <p className='text-center p-5'>{loading && 'Loading...'}</p>
+            <div className=''>
+                {loading && <p className='position-absolute top-50 start-50 translate-middle text-white'>Loading...</p>}
                 <p>{error && 'Error'}</p>
 
-                {detail && <ItemDetail detail={detail} /> }
+                {detail && <ItemDetail detail={detail} id={id}/> }
                 
             </div>
 

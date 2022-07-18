@@ -1,14 +1,28 @@
-import React, { useState } from 'react'
+import {useState, useContext} from 'react';
+import Swal from 'sweetalert2';
+import { MyContext } from '../context/CartContext';
 
 export default function ItemCount({inicial, max, onAdd}) {
     
     const [count, setCount] = useState(inicial);
 
     const sumar = () => {
-        count < max ? setCount(count + 1) : alert("no se puede agregar mas productos")
+        
+        count < max ?
+            setCount(count + 1) :
+            Swal.fire({
+                title: 'no se puede agregar mas productos',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
     }
     const restar = () => {
-        count > inicial ? setCount(count - 1) : alert("no se puede quitar mas productos")
+        // count > inicial ? setCount(count - 1) : alert("no se puede quitar mas productos")
+        count > inicial && setCount(count - 1) 
     }
     const reset = () => {
         setCount(inicial);

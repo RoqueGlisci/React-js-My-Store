@@ -1,14 +1,12 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom';
+
 import { MyContext } from '../context/CartContext';
 import { useContext } from 'react';
-
 
 export default function ItemCard({producto}) {
   const { id, count, title, price, pictureUrl } = producto;
   
   const { deleteItem } = useContext(MyContext);
-
+  
   return (
     <div className='container p-3'>
       <div className='row p-3' style={{backgroundColor: "rgba(0, 0, 0, 0.4)", borderRadius: "2rem" }}>

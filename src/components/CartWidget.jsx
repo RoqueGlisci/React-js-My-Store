@@ -9,13 +9,9 @@ export default function CartWidget() {
     
     return (
         <>
-
             <i className="bi bi-cart3 pe-4" style={{color: "white", fontSize: "1.5rem"}}></i>
-            
-            <span style={{color: "white", fontSize:"1.5rem" }}>{getItemQty()}</span>
-            
+            <span style={{color: "white", fontSize:"1.5rem" }}>{getItemQty()}</span>  
         </>
-        
     )
 }
 
