@@ -1,4 +1,4 @@
-# My Store: It's a fake e-commerce with Reack
+# My Store: It's a fake e-commerce with React
 
 ## Deploy of my project in Firebase
 
