@@ -2,7 +2,7 @@
 
 ## Deploy of my project in Firebase
 
-Link to my projec : https://my-store-2e484.web.app
+Link to my project : https://my-store-2e484.web.app
 
 I made this page in the coderhouse's course. by Roque Glisci 2022
 
